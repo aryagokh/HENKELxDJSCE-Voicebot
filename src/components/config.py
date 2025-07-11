@@ -17,5 +17,11 @@ def get_secret(key, default=None):
         return st.secrets.get(key, default)
     return os.getenv(key, default)
 
+def where_is_it_running():
+    if running_in_streamlit:
+        return 'streamlit'
+    else:
+        return 'local'
+
 if __name__ == '__main__':
     print(f"GEMINI API KEY: {get_secret('GEMINI_API_KEY', 'Not Found')}")

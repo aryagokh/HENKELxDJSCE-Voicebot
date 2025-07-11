@@ -1,6 +1,7 @@
 # Local Files
 data/
 documentation/
+temp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

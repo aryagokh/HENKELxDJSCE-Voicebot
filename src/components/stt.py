@@ -1,6 +1,6 @@
 import assemblyai as aai
 import wave
-from config import get_secret
+from src.components.config import get_secret
 import time
 
 try:
