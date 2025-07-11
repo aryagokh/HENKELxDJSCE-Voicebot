@@ -43,17 +43,9 @@ def understand_the_user(user_text: str)-> json:
             response = chain.invoke(input={"text": user_text})
             return response
 
-            return {
-                "actual_input": response.actual_input,
-                "user_intent": response.user_intent
-            }
-        
         except Exception as e:
             print(e)
-            return {
-                "actual_input": None,
-                "user_intent": None
-            }
+            return None
 
 if __name__ == '__main__':
 #     from stt import convert_speech_to_text
