@@ -4,6 +4,7 @@ from pydantic import Field, BaseModel
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain.prompts import PromptTemplate
 import json
+import time
 from config import get_secret
 
 model = ChatGoogleGenerativeAI(
@@ -45,7 +46,11 @@ def understand_the_user(user_text: str)-> json:
 
         except Exception as e:
             print(e)
-            return None
+            retries +=1
+            time.sleep(5 * retries)
+
+    return None
+        
 
 if __name__ == '__main__':
 #     from stt import convert_speech_to_text
