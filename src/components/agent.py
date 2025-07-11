@@ -33,7 +33,7 @@ def get_df():
         return df
     elif where_is_prog_running == 'streamlit':
         # Handle when deployable
-        df = pd.read_excel(io='./data/excel/henkel_inventory_dummy_data.xlsx')
+        df = pd.read_excel(io='data/excel/henkel_inventory_dummy_data.xlsx')
         return df
     else:
         raise ValueError(f"Unknown environment: {where_is_prog_running}")
