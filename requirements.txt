@@ -105,7 +105,6 @@ pyOpenSSL==25.1.0
 python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_python-dateutil_1751104122/work
 python-dotenv==1.1.1
 pytz==2025.2
-pywin32==307
 PyYAML==6.0.2
 pyzmq @ file:///D:/bld/pyzmq_1749898453777/work
 referencing==0.36.2
