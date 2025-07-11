@@ -2,7 +2,6 @@
 data/
 documentation/
 temp/
-req.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
