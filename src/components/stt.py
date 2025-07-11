@@ -10,23 +10,27 @@ except Exception as e:
     raise 
 
 def convert_speech_to_text(audio_file_path: str):
-    try:
-        start_time = time.time()
+    retries, max_retries = 0, 5
+    while (retries < max_retries):
+        try:
+            start_time = time.time()
 
-        config = aai.TranscriptionConfig(speech_model=aai.SpeechModel.best)
-        transcriber = aai.Transcriber(config=config)
-        transcript = transcriber.transcribe(audio_file_path)
-        if transcript.status == "error":
-            raise RuntimeError(f"Transcription failed: {transcript.error}")
-        
-        end_time = time.time()
-
-        return transcript.text, (end_time - start_time)
-    
+            config = aai.TranscriptionConfig(speech_model=aai.SpeechModel.best)
+            transcriber = aai.Transcriber(config=config)
+            transcript = transcriber.transcribe(audio_file_path)
+            if transcript.status == "error":
+                raise RuntimeError(f"Transcription failed: {transcript.error}")
             
-    except Exception as e:
-        print(e)
-        return -1
+            end_time = time.time()
+
+            return transcript.text, (end_time - start_time)
+
+        except Exception as e:
+            print(e)
+            retries += 1
+            time.sleep(5 * retries)
+
+    return None, None
     
 
 def get_wav_duration(audio_file_path):
