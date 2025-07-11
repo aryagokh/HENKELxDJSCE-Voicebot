@@ -6,8 +6,6 @@ from typing import Dict, List, Any
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-
 from src.components.nlu import understand_the_user
 from src.components.agent import retriever
 
