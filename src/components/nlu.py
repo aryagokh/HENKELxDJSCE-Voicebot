@@ -5,7 +5,7 @@ from langchain_core.output_parsers import PydanticOutputParser
 from langchain.prompts import PromptTemplate
 import json
 import time
-from src.components.config import get_secret
+from config import get_secret
 
 model = ChatGoogleGenerativeAI(
     model='gemini-2.0-flash-lite',

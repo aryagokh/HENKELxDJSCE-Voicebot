@@ -6,8 +6,8 @@ from typing import Dict, List, Any
 import sys
 import os
 
-from src.components.nlu import understand_the_user
-from src.components.agent import retriever
+from nlu import understand_the_user
+from agent import retriever
 
 st.set_page_config(
     page_title="Inventory Management Assistant",

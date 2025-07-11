@@ -6,7 +6,7 @@ from langchain.agents.agent_types import AgentType
 from langchain_core.tools import tool
 from pydantic import Field, BaseModel
 import pandas as pd
-from src.components.config import get_secret, where_is_it_running
+from config import get_secret, where_is_it_running
 import time
 
 llm = ChatGoogleGenerativeAI(
