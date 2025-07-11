@@ -4,7 +4,7 @@ numpy
 assemblyai
 langchain
 langchain-core
-lanchain-google-generativeai
+lanchain-google-genai
 langchain-community
 langchain-text-splitters
 python-dotenv
