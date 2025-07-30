@@ -40,8 +40,9 @@ st.set_page_config(
 # Voice Configuration
 VOICE_OPTIONS = {
     "gtts": "Zira (Fast and handled online, gtts library)" if GTTS_AVAILABLE else "Google TTS (Not Available)",
-    "pyttsx3": "David (Privacy focused but slow, pyttsx library)" if PYTTSX3_AVAILABLE else "Offline TTS (Not Available)",
+    # "pyttsx3": "David **Don't work in streamlit, works only in Local** (Privacy focused but slow, pyttsx library)" if PYTTSX3_AVAILABLE else "Offline TTS (Not Available)",
     # "disabled": "Voice Disabled"
+    ## Uncomment when on local
 }
 
 VOICE_INPUT_OPTIONS = {
