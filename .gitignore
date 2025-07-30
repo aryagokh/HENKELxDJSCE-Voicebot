@@ -1,5 +1,6 @@
 # Local Files and Folders
 temp/
+temp/agent.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
