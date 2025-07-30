@@ -635,10 +635,10 @@ def main():
         
         st.markdown("### 📋 System Info")
         st.info(f"**Chat Messages** (Please do not exceed 5, API limit constraints): {int(len(st.session_state.chat_history)/2) if st.session_state.chat_history else 0}")
-        if st.session_state.voice_enabled:
-            st.info(f"**Voice Output:** {VOICE_OPTIONS[st.session_state.voice_method]}")
         if st.session_state.voice_input_enabled:
             st.info(f"**Voice Input:** {VOICE_INPUT_OPTIONS[st.session_state.voice_input_method]}")
+        if st.session_state.voice_enabled:
+            st.info(f"**Voice Output:** {VOICE_OPTIONS[st.session_state.voice_method]}")
         
         st.markdown("### 💡 Sample Queries")
         st.markdown("""
