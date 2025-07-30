@@ -577,7 +577,9 @@ def main():
             st.session_state.audio_processed = False
             st.rerun()
         
-        with st.expander("### 🎤 Voice Input Settings"):
+        with st.expander("### 🎤 Voice Settings"):
+
+            st.markdown("### 🔊 Voice Input Settings")
         
             st.session_state.voice_input_enabled = st.checkbox(
                 "Enable Voice Input", 
