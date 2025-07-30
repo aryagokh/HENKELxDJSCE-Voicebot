@@ -659,7 +659,7 @@ def main():
     if st.session_state.voice_input_enabled and st.session_state.voice_input_method == "microphone":
         if SPEECH_RECOGNITION_AVAILABLE:
             st.markdown("🎤 **Voice Input**")
-            audio_file = st.audio_input("Record your question (please delete after use for further use)", 
+            audio_file = st.audio_input("Record your question", 
                                         disabled=st.session_state.is_processing,
                                             help="Record your voice, please delete after use for allowing futher processing")
             
