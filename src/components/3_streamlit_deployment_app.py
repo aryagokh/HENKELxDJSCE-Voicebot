@@ -804,9 +804,9 @@ def main():
                 st.rerun()
     
     with col3:
-        if st.button("⚠️ Low Stock Alert", disabled=st.session_state.is_processing):
+        if st.button("📝 Model Number", disabled=st.session_state.is_processing):
             if not st.session_state.is_processing:
-                st.session_state.recognized_text = "Show me products with low stock levels"
+                st.session_state.recognized_text = "What is the model number of Bonderite 6278?"
                 st.rerun()
 
     # Footer with usage tips
