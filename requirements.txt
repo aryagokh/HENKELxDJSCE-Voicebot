@@ -30,9 +30,9 @@ rich==14.0.0
 
 
 # TTS
-pyttsx3
+# pyttsx3                      Type - ignore : only works in local
 gtts==2.5.4
 
 ## STT
-# SpeechRecognition==3.14.3    Type - ignore : only works in local
+SpeechRecognition==3.14.3    
 # PyAudio==0.2.14              Type - ignore : only works in local
