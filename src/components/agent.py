@@ -83,7 +83,7 @@ model_with_tools = model.bind_tools(tools)
 class OutputSchema(BaseModel):
     query: str = Field(description="The query sent to the tool to retrieve the information")
     response: str = Field(description="The complete output received from the tool for the received query (even if it is long)")
-    paraphrased_output: str = Field(description="The paraphrased complete output from the received which includes the response but in the human-understandable format")
+    paraphrased_output: str = Field(description="The paraphrased complete output from the received which includes the response but in the human-understandable format, please simplify if there is any error")
 
 parser = PydanticOutputParser(pydantic_object=OutputSchema)
 
