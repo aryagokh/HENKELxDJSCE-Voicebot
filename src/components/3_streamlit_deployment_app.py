@@ -792,9 +792,9 @@ def main():
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        if st.button("📊 Inventory Summary", disabled=st.session_state.is_processing):
+        if st.button("📊 Bonderite Qty Check", disabled=st.session_state.is_processing):
             if not st.session_state.is_processing:
-                st.session_state.recognized_text = "Show me a summary of the current inventory"
+                st.session_state.recognized_text = "What are the current quantity of Bonderite 6278 available?"
                 st.rerun()
     
     with col2:
