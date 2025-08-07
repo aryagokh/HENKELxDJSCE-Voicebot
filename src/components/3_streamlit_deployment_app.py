@@ -634,7 +634,18 @@ def main():
                     st.warning("📦 Install pyttsx3: `pip install pyttsx3`")
         
         st.markdown("### 📋 System Info")
-        st.info(f"**Chat Messages** (Please do not exceed 5, API limit constraints): {int(len(st.session_state.chat_history)/2) if st.session_state.chat_history else 0}")
+
+        chat_count = int(len(st.session_state.chat_history)/2) if st.session_state.chat_history else 0
+        if chat_count == 0:
+            st.success("✅ Welcome! You have 5 messages available this session.")
+        elif chat_count < 3:
+            st.info(f"💡 {5-chat_count} messages remaining. Make them count!")
+        elif chat_count < 5:
+            st.warning(f"⚡ Only {5-chat_count} messages left in this session.")
+        else:
+            st.error("🛑 Session limit reached. Please refresh for a new session.")
+        
+        st.info(f"**Chat Messages** : **{int(len(st.session_state.chat_history)/2) if st.session_state.chat_history else 0}**\n\nDue to API Limits, we are allowing only 5 messages per session. Thank You! 😊")
         if st.session_state.voice_input_enabled:
             st.info(f"**Voice Input:** {VOICE_INPUT_OPTIONS[st.session_state.voice_input_method]}")
         if st.session_state.voice_enabled:
@@ -663,7 +674,7 @@ def main():
             st.markdown("🎤 **Voice Input**")
             audio_file = st.audio_input("Record your question", 
                                         disabled=st.session_state.is_processing,
-                                            help="Record your voice, please delete after use for allowing futher processing")
+                                            help="Record your voice, please delete after use for allowing futher processing.\n\nPress the recording button and start speaking, press again when done.")
             
             # Check if we have new audio and haven't processed it yet
             if audio_file is not None and not st.session_state.audio_processed:
@@ -694,15 +705,22 @@ def main():
     with st.form(key="chat_form", clear_on_submit=True):
         # Use recognized text if available
         default_text = st.session_state.recognized_text if st.session_state.recognized_text else ""
-        
-        user_input = st.text_area(
-            "Type your question or use voice input above:",
-            value=default_text,
-            height=100,
-            key="recognized-text",
-            placeholder="e.g., 'What is the total count of Bonderite 6278?' or 'Show me top 5 products in R&D department'",
-            disabled=st.session_state.is_processing
-        )
+
+        if chat_count>=5:
+            st.error("🚫 **Message limit reached!** Please start a new session.")
+            user_input = st.text_area(
+                'API LIMIT REACHED',
+                disabled=True
+            )
+        else:
+            user_input = st.text_area(
+                "Type your question or use voice input above:",
+                value=default_text,
+                height=100,
+                key="recognized-text",
+                placeholder="e.g., 'What is the total count of Bonderite 6278?' or 'Show me top 5 products in R&D department'",
+                disabled=st.session_state.is_processing
+            )
         
         submit_button = st.form_submit_button(
             "💬 Send Message",
